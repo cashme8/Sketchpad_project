@@ -17,7 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Add an event listener for mouseover to change the background color
             square.addEventListener("mouseover", () => {
-                square.style.backgroundColor = "aqua";     //change color while hovering over the pad
+                const randomColor = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
+                square.style.backgroundColor = randomColor;     //this simply gives you any random color while hovering over the pad
             });
         }
     }

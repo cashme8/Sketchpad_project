@@ -1,3 +1,9 @@
+// This script uses a black color
+// Additionally,It implements a progressive darkening effect where each interaction darkens the square by 10%.
+// The goal is to achieve a fully black (or completely colored) square in only ten interactions.
+
+
+
 document.addEventListener("DOMContentLoaded", () => {
     const container = document.getElementById("grid-container");
     const button = document.getElementById("new-grid-button");
@@ -13,11 +19,17 @@ document.addEventListener("DOMContentLoaded", () => {
             square.classList.add("grid-item");    // Name the new class of squares
             square.style.width = `${squareSize}px`;     // The width of a side
             square.style.height = `${squareSize}px`;    // The height of a side
+            square.dataset.darkness = 0; // Initialize darkness level at 0s
             container.appendChild(square);        // Add squares into the container
 
             // Add an event listener for mouseover to change the background color
             square.addEventListener("mouseover", () => {
-                square.style.backgroundColor = "aqua";     //change color while hovering over the pad
+                let darkness = parseFloat(square.dataset.darkness);
+                if (darkness < 1) {
+                    darkness += 0.1;
+                    square.dataset.darkness = darkness;
+                    square.style.backgroundColor = `rgba(0, 0, 0, ${darkness})`;
+                }  
             });
         }
     }
