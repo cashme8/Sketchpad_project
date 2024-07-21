@@ -1,3 +1,7 @@
+// Rather than squares being the same color throughout the grid,
+// randomize the squares’ RGB values with each interaction.
+// Here the colors which show on the mouse hover are randomly chosen by the computer (script).
+
 document.addEventListener("DOMContentLoaded", () => {
     const container = document.getElementById("grid-container");
     const button = document.getElementById("new-grid-button");
